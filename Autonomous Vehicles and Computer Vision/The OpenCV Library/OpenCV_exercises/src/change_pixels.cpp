@@ -18,7 +18,7 @@ void changePixels()
         // STUDENT TASK : loop over all columns and set matrix elements to 255
         for(int col = 0; col < ncols; col++)
         {
-            cv::Mat::at<unsigned int>(r,col) = 255;
+            m1_8u.at<unsigned char>(r,col) = 255;
         }
 
     }
