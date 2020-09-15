@@ -6,6 +6,7 @@
 #include <opencv2/features2d.hpp>
 #include <opencv2/xfeatures2d.hpp>
 #include <opencv2/xfeatures2d/nonfree.hpp>
+#include <opencv2/xfeatures2d/nonfree.hpp>
 
 using namespace std;
 
@@ -40,6 +41,28 @@ void descKeypoints1()
     imshow(windowName, visImage);
     cv::waitKey(0);
 
+    //SWIST Detector / descriptor
+
+    cv::Ptr<cv::FeatureDetector> detector_sift = cv::xfeatures2d::SIFT::create();
+    vector<cv::KeyPoint> KptSIFT;
+
+    double t_1 = (double)cv::getTickCount();
+    detector_sift->detect(imgGray, KptSIFT);
+    t_1 = ((double)cv::getTickCount() - t_1) / cv::getTickFrequency();
+    cout << "SIFT detector with n = " << KptSIFT.size() << "Keypoints in  " << 1000*t /1 << " ms" << endl;
+
+    cv::Ptr<cv::DescriptorExtractor> descriptor_SIFT = cv::xfeatures2d::SIFT::create();
+    cv::Mat descSIFT;
+    t = (double)cv::getTickCount();
+    descriptor_SIFT->compute(imgGray,KptSIFT,descSIFT); 
+    t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+
+    cv::Mat visImage_1 = img.clone();
+    cv::drawKeypoints(img,KptSIFT,visImage_1,cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+    string windowname = "SIFT results";
+    cv::namedWindow(windowName,1);
+    imshow(windowName,visImage_1);
+    cv::waitKey(0);
     // TODO: Add the SIFT detector / descriptor, compute the 
     // time for both steps and compare both BRISK and SIFT
     // with regard to processing speed and the number and 
