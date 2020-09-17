@@ -98,6 +98,22 @@ int main(int argc, const char *argv[])
         {
             detKeypointsModern(keypoints,imgGray,detectorType,false);
         }
+        else if(detectorType.compare("AKAZE") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("BRISK") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("FAST") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("ORB") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
         //// EOF STUDENT ASSIGNMENT
 
         //// STUDENT ASSIGNMENT
