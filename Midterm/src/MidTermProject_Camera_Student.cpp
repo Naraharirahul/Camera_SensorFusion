@@ -102,13 +102,18 @@ int main(int argc, const char *argv[])
 
         //// STUDENT ASSIGNMENT
         //// TASK MP.3 -> only keep keypoints on the preceding vehicle
-
+        
         // only keep keypoints on the preceding vehicle
         bool bFocusOnVehicle = true;
         cv::Rect vehicleRect(535, 180, 180, 150);
         if (bFocusOnVehicle)
         {
-            // ...
+            vector<cv::KeyPoint> FilteredKP;
+            for(auto kp: keypoints)
+            {
+                if (vehicleRect.contains(kp.pt)) FilteredKP.push_back(kp);
+            }
+            keypoints = FilteredKP;
         }
 
         //// EOF STUDENT ASSIGNMENT

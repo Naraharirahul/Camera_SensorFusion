@@ -114,6 +114,15 @@ void detKeypointsModern(std::vector<cv::KeyPoint> &keypoints, cv::Mat &img, std:
     t = (static_cast<double>(cv::getTickCount()) - t) / cv::getTickFrequency();
     cout << detectorType << " with n= " << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
 
+    if (bVis)
+  {
+    cv::Mat visImage = img.clone();
+    cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+    std::string windowName = detectorType + " Keypoint Detector Results";
+    cv::namedWindow(windowName, 6);
+    imshow(windowName, visImage);
+    cv::waitKey(0);
+  }
 }
 void detKeypointsHarris(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
 {
