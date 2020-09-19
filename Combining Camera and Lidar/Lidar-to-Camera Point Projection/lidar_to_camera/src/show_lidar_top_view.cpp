@@ -29,7 +29,7 @@ void showLidarTopview()
         int x = (-yw * imageSize.height / worldSize.height) + imageSize.width / 2;
 
         float zw = it->z;
-        double minZ = -1 .5;
+        double minZ = -1.5;
 
         if(zw > minZ)
         {

@@ -54,7 +54,17 @@ void projectLidarToCamera2()
         // Store the result in Y.
 
         // 3. Once this is done, transform Y back into Euclidean coordinates and store the result in the variable pt.
+        X.at<double>(0,0) = it->x;
+        X.at<double>(1,0) = it->y;
+        X.at<double>(2,0) = it->z;
+        X.at<double>(3,0) = 1;
         cv::Point pt;
+
+        Y = P_rect_00 * R_rect_00 * RT * X;
+    
+       
+        pt.x = Y.at<double>(0,0) / Y.at<double>(0,2);
+        pt.y = Y.at<double>(0,1) / Y.at<double>(0,2);
 
         float val = it->x;
         float maxVal = 20.0;
