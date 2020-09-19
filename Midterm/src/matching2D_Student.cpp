@@ -24,13 +24,28 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
     // perform matching task
     if (selectorType.compare("SEL_NN") == 0)
     { // nearest neighbor (best match)
-        matcher->match(descSource, descRef, matches); // Finds the best match for each descriptor in desc1
+    auto t = static_cast<double>(cv::getTickCount());
+    matcher->match(descSource, descRef, matches); // Finds the best match for each descriptor in desc1
+    t = (static_cast<double>(cv::getTickCount()) - t) / cv::getTickFrequency();
+     cout << " (NN) with n=" << matches.size() << " matches in " << 1000 * t / 1.0 << " ms" << endl;
     }
     else if (selectorType.compare("SEL_KNN") == 0)
     { // k nearest neighbors (k=2)
         vector<vector<cv::DMatch>> knn_matches;
+        auto t = static_cast<double>(cv::getTickCount());
         matcher->knnMatch(descSource, descRef, knn_matches, 2);
-        // ...
+        t = (static_cast<double>(cv::getTickCount()) - t) / cv::getTickFrequency();
+        cout << " (KNN) with n=" << knn_matches.size() << " matches in " << 1000 * t / 1.0 << " ms" << endl;
+
+        double minDescDistRatio = 0.8;
+        for (auto& knn_match : knn_matches)
+        {
+            if (knn_match[0].distance < minDescDistRatio * knn_match[1].distance)
+            {
+                matches.push_back(knn_match[0]);
+            }
+        }
+        cout << "(KNN) # keypoints removed = " << knn_matches.size() - matches.size() << endl;
     }
 }
 
@@ -41,7 +56,6 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
     cv::Ptr<cv::DescriptorExtractor> extractor;
     if (descriptorType.compare("BRISK") == 0)
     {
-
         int threshold = 30;        // FAST/AGAST detection threshold score.
         int octaves = 3;           // detection octaves (use 0 to do single scale)
         float patternScale = 1.0f; // apply this scale to the pattern used for sampling the neighbourhood of a keypoint.
