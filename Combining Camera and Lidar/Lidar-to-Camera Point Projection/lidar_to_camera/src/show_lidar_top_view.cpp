@@ -28,8 +28,17 @@ void showLidarTopview()
         int y = (-xw * imageSize.height / worldSize.height) + imageSize.height;
         int x = (-yw * imageSize.height / worldSize.height) + imageSize.width / 2;
 
-        cv::circle(topviewImg, cv::Point(x, y), 5, cv::Scalar(0, 0, 255), -1);
-        
+        float zw = it->z;
+        double minZ = -1 .5;
+
+        if(zw > minZ)
+        {
+            float maxVal = worldSize.height;
+            float val = it->x;
+            int red = min (255,(int)(255 * abs((val - maxVal)/maxVal)));
+            int green = min(255, (int)(255 * (1-abs((val-  maxVal)/maxVal))));
+            cv::circle(topviewImg, cv::Point(x, y), 5, cv::Scalar(0,green,red), -1);
+        }
         // TODO: 
         // 1. Change the color of the Lidar points such that 
         // X=0.0m corresponds to red while X=20.0m is shown as green.
