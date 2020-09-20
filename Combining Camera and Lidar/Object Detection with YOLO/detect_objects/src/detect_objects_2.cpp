@@ -13,7 +13,9 @@ using namespace std;
 void detectObjects2()
 {
     // load image from file
-    cv::Mat img = cv::imread("../images/s_thrun.jpg");
+    // cv::Mat img = cv::imread("../images/s_thrun.jpg");
+
+    cv::Mat img = cv::imread("../images/0000000000.png");
 
     // load class names from file
     string yoloBasePath = "../dat/yolo/";
@@ -64,6 +66,7 @@ void detectObjects2()
     for (size_t i = 0; i < netOutput.size(); ++i)
     {
         float* data = (float*)netOutput[i].data;
+        
         for (int j = 0; j < netOutput[i].rows; ++j, data += netOutput[i].cols)
         {
             cv::Mat scores = netOutput[i].row(j).colRange(5, netOutput[i].cols);
@@ -84,6 +87,7 @@ void detectObjects2()
                 
                 boxes.push_back(box);
                 classIds.push_back(classId.x);
+                
                 confidences.push_back((float)confidence);
             }
         }
@@ -101,7 +105,7 @@ void detectObjects2()
         bBox.classID = classIds[*it];
         bBox.confidence = confidences[*it];
         bBox.boxID = (int)bBoxes.size(); // zero-based unique identifier for this bounding box
-        
+        cout << bBox.roi << "   " << bBox.confidence <<  endl;
         bBoxes.push_back(bBox);
     }
     
