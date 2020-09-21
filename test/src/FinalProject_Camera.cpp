@@ -156,9 +156,29 @@ int main(int argc, const char *argv[])
         {
             detKeypointsShiTomasi(keypoints, imgGray, false);
         }
-        else
+        else if(detectorType.compare("HARRIS") == 0)
+        {   
+            detKeypointsHarris(keypoints,imgGray, false); //...
+        }
+        else if(detectorType.compare("SIFT") == 0)
         {
-            //...
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("AKAZE") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("BRISK") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("FAST") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
+        }
+        else if(detectorType.compare("ORB") == 0)
+        {
+            detKeypointsModern(keypoints,imgGray,detectorType,false);
         }
 
         // optional : limit number of keypoints (helpful for debugging and learning)

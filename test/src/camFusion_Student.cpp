@@ -158,6 +158,48 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 
 
 void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame)
-{
-    // ...
+{   
+    int pt_counts[prevFrame.boundingBoxes.size()][currFrame.boundingBoxes.size()];
+    for(auto it = matches.begin() ; it != matches.end() - 1 ;  ++ it)
+    {
+        cv::KeyPoint prev_key = prevFrame.keypoints[it->queryIdx];
+        cv::Point prev_key_pt = cv::Point(prev_key.pt.x, prev_key.pt.y);
+        bool prev_keypoint_found = false;
+
+        cv::KeyPoint curr_key = currFrame.keypoints[it->queryIdx];
+        cv::Point curr_key_pt = cv::Point(curr_key.pt.x, curr_key.pt.y);
+        bool curr_keypoint_found = false;
+
+        std::vector<int> prev_key_id,curr_key_id;
+
+        for(int i = 0; i < prevFrame.boundingBoxes.size() ; i ++)
+        {
+            if(prevFrame.boundingBoxes[i].roi.contains(prev_key_pt))
+            {
+                prev_keypoint_found = true;
+                prev_key_id.push_back(i);
+            }
+        }
+
+        for(int j = 0; j < currFrame.boundingBoxes.size(); j++)
+        {
+            if(currFrame.boundingBoxes[j].roi.contains(curr_key_pt))
+            {
+                curr_keypoint_found = true;
+                curr_key_id.push_back(j);
+            }
+        }
+
+        if(prev_keypoint_found && curr_keypoint_found)
+        {
+            for(auto id_prev:prev_key_id)
+            {
+                for(auto id_curr:curr_key_id)
+                {
+                    pt_counts[id_prev][id_curr];
+                }
+            }
+        }
+
+    }
 }

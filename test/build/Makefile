@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nmalaya/CPP/Camera_SensorFusion/final_project
+CMAKE_SOURCE_DIR = /home/nmalaya/CPP/Camera_SensorFusion/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nmalaya/CPP/Camera_SensorFusion/final_project/build
+CMAKE_BINARY_DIR = /home/nmalaya/CPP/Camera_SensorFusion/test/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nmalaya/CPP/Camera_SensorFusion/final_project/build/CMakeFiles /home/nmalaya/CPP/Camera_SensorFusion/final_project/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nmalaya/CPP/Camera_SensorFusion/test/build/CMakeFiles /home/nmalaya/CPP/Camera_SensorFusion/test/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nmalaya/CPP/Camera_SensorFusion/final_project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nmalaya/CPP/Camera_SensorFusion/test/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 3D_object_tracking
+# Target rules for targets named test
 
 # Build rule for target.
-3D_object_tracking: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 3D_object_tracking
-.PHONY : 3D_object_tracking
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-3D_object_tracking/fast:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/build
-.PHONY : 3D_object_tracking/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 src/FinalProject_Camera.o: src/FinalProject_Camera.cpp.o
 
@@ -129,7 +129,7 @@ src/FinalProject_Camera.o: src/FinalProject_Camera.cpp.o
 
 # target to build an object file
 src/FinalProject_Camera.cpp.o:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/FinalProject_Camera.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/FinalProject_Camera.cpp.o
 .PHONY : src/FinalProject_Camera.cpp.o
 
 src/FinalProject_Camera.i: src/FinalProject_Camera.cpp.i
@@ -138,7 +138,7 @@ src/FinalProject_Camera.i: src/FinalProject_Camera.cpp.i
 
 # target to preprocess a source file
 src/FinalProject_Camera.cpp.i:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/FinalProject_Camera.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/FinalProject_Camera.cpp.i
 .PHONY : src/FinalProject_Camera.cpp.i
 
 src/FinalProject_Camera.s: src/FinalProject_Camera.cpp.s
@@ -147,7 +147,7 @@ src/FinalProject_Camera.s: src/FinalProject_Camera.cpp.s
 
 # target to generate assembly for a file
 src/FinalProject_Camera.cpp.s:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/FinalProject_Camera.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/FinalProject_Camera.cpp.s
 .PHONY : src/FinalProject_Camera.cpp.s
 
 src/camFusion_Student.o: src/camFusion_Student.cpp.o
@@ -156,7 +156,7 @@ src/camFusion_Student.o: src/camFusion_Student.cpp.o
 
 # target to build an object file
 src/camFusion_Student.cpp.o:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/camFusion_Student.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/camFusion_Student.cpp.o
 .PHONY : src/camFusion_Student.cpp.o
 
 src/camFusion_Student.i: src/camFusion_Student.cpp.i
@@ -165,7 +165,7 @@ src/camFusion_Student.i: src/camFusion_Student.cpp.i
 
 # target to preprocess a source file
 src/camFusion_Student.cpp.i:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/camFusion_Student.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/camFusion_Student.cpp.i
 .PHONY : src/camFusion_Student.cpp.i
 
 src/camFusion_Student.s: src/camFusion_Student.cpp.s
@@ -174,7 +174,7 @@ src/camFusion_Student.s: src/camFusion_Student.cpp.s
 
 # target to generate assembly for a file
 src/camFusion_Student.cpp.s:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/camFusion_Student.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/camFusion_Student.cpp.s
 .PHONY : src/camFusion_Student.cpp.s
 
 src/lidarData.o: src/lidarData.cpp.o
@@ -183,7 +183,7 @@ src/lidarData.o: src/lidarData.cpp.o
 
 # target to build an object file
 src/lidarData.cpp.o:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/lidarData.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/lidarData.cpp.o
 .PHONY : src/lidarData.cpp.o
 
 src/lidarData.i: src/lidarData.cpp.i
@@ -192,7 +192,7 @@ src/lidarData.i: src/lidarData.cpp.i
 
 # target to preprocess a source file
 src/lidarData.cpp.i:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/lidarData.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/lidarData.cpp.i
 .PHONY : src/lidarData.cpp.i
 
 src/lidarData.s: src/lidarData.cpp.s
@@ -201,7 +201,7 @@ src/lidarData.s: src/lidarData.cpp.s
 
 # target to generate assembly for a file
 src/lidarData.cpp.s:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/lidarData.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/lidarData.cpp.s
 .PHONY : src/lidarData.cpp.s
 
 src/matching2D_Student.o: src/matching2D_Student.cpp.o
@@ -210,7 +210,7 @@ src/matching2D_Student.o: src/matching2D_Student.cpp.o
 
 # target to build an object file
 src/matching2D_Student.cpp.o:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/matching2D_Student.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/matching2D_Student.cpp.o
 .PHONY : src/matching2D_Student.cpp.o
 
 src/matching2D_Student.i: src/matching2D_Student.cpp.i
@@ -219,7 +219,7 @@ src/matching2D_Student.i: src/matching2D_Student.cpp.i
 
 # target to preprocess a source file
 src/matching2D_Student.cpp.i:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/matching2D_Student.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/matching2D_Student.cpp.i
 .PHONY : src/matching2D_Student.cpp.i
 
 src/matching2D_Student.s: src/matching2D_Student.cpp.s
@@ -228,7 +228,7 @@ src/matching2D_Student.s: src/matching2D_Student.cpp.s
 
 # target to generate assembly for a file
 src/matching2D_Student.cpp.s:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/matching2D_Student.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/matching2D_Student.cpp.s
 .PHONY : src/matching2D_Student.cpp.s
 
 src/objectDetection2D.o: src/objectDetection2D.cpp.o
@@ -237,7 +237,7 @@ src/objectDetection2D.o: src/objectDetection2D.cpp.o
 
 # target to build an object file
 src/objectDetection2D.cpp.o:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/objectDetection2D.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/objectDetection2D.cpp.o
 .PHONY : src/objectDetection2D.cpp.o
 
 src/objectDetection2D.i: src/objectDetection2D.cpp.i
@@ -246,7 +246,7 @@ src/objectDetection2D.i: src/objectDetection2D.cpp.i
 
 # target to preprocess a source file
 src/objectDetection2D.cpp.i:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/objectDetection2D.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/objectDetection2D.cpp.i
 .PHONY : src/objectDetection2D.cpp.i
 
 src/objectDetection2D.s: src/objectDetection2D.cpp.s
@@ -255,7 +255,7 @@ src/objectDetection2D.s: src/objectDetection2D.cpp.s
 
 # target to generate assembly for a file
 src/objectDetection2D.cpp.s:
-	$(MAKE) -f CMakeFiles/3D_object_tracking.dir/build.make CMakeFiles/3D_object_tracking.dir/src/objectDetection2D.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/objectDetection2D.cpp.s
 .PHONY : src/objectDetection2D.cpp.s
 
 # Help Target
@@ -266,7 +266,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... 3D_object_tracking"
+	@echo "... test"
 	@echo "... src/FinalProject_Camera.o"
 	@echo "... src/FinalProject_Camera.i"
 	@echo "... src/FinalProject_Camera.s"

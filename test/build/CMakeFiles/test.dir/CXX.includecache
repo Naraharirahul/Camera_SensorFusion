@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/FinalProject_Camera.cpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/FinalProject_Camera.cpp
 iostream
 -
 fstream
@@ -34,17 +34,17 @@ opencv2/xfeatures2d.hpp
 opencv2/xfeatures2d/nonfree.hpp
 -
 dataStructures.h
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 matching2D.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/matching2D.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/matching2D.hpp
 objectDetection2D.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/objectDetection2D.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/objectDetection2D.hpp
 lidarData.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/lidarData.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/lidarData.hpp
 camFusion.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/camFusion.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/camFusion.hpp
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/camFusion.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/camFusion.hpp
 stdio.h
 -
 vector
@@ -52,9 +52,9 @@ vector
 opencv2/core.hpp
 -
 dataStructures.h
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/camFusion_Student.cpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/camFusion_Student.cpp
 iostream
 -
 algorithm
@@ -66,11 +66,11 @@ opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
 -
 camFusion.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/camFusion.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/camFusion.hpp
 dataStructures.h
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 vector
 -
 map
@@ -78,7 +78,7 @@ map
 opencv2/core.hpp
 -
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/lidarData.cpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/lidarData.cpp
 iostream
 -
 algorithm
@@ -88,9 +88,9 @@ opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
 -
 lidarData.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/lidarData.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/lidarData.hpp
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/lidarData.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/lidarData.hpp
 stdio.h
 -
 fstream
@@ -98,9 +98,9 @@ fstream
 string
 -
 dataStructures.h
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/matching2D.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/matching2D.hpp
 stdio.h
 -
 iostream
@@ -128,15 +128,15 @@ opencv2/xfeatures2d.hpp
 opencv2/xfeatures2d/nonfree.hpp
 -
 dataStructures.h
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/matching2D_Student.cpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/matching2D_Student.cpp
 numeric
 -
 matching2D.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/matching2D.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/matching2D.hpp
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/objectDetection2D.cpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/objectDetection2D.cpp
 fstream
 -
 sstream
@@ -150,15 +150,15 @@ opencv2/imgproc.hpp
 opencv2/highgui.hpp
 -
 objectDetection2D.hpp
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/objectDetection2D.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/objectDetection2D.hpp
 
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/objectDetection2D.hpp
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/objectDetection2D.hpp
 stdio.h
 -
 opencv2/core.hpp
 -
 dataStructures.h
-/home/nmalaya/CPP/Camera_SensorFusion/final_project/src/dataStructures.h
+/home/nmalaya/CPP/Camera_SensorFusion/test/src/dataStructures.h
 
 /usr/local/include/opencv4/opencv2/core.hpp
 opencv2/core/cvdef.h
