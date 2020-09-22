@@ -152,8 +152,26 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
 
 void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
                      std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC)
-{
-    // ...
+{   
+    double minxval_prev = 1e9; 
+    double minxval_curr = 1e9;
+    for(auto i = lidarPointsPrev.begin() ; i < lidarPointsPrev.end() ; ++ i)
+    {
+        if(i->x < minxval_prev)
+        {
+            minxval_prev = i->x;
+        }
+    }
+
+    for(auto i = lidarPointsCurr.begin() ; i < lidarPointsCurr.end() ; ++ i)
+    {
+        if(i->x < minxval_curr)
+        {
+            minxval_curr = i->x;
+        }
+    }
+
+    TTC = minxval_curr*frameRate/(minxval_prev - minxval_curr);
 }
 
 
@@ -165,7 +183,7 @@ void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bb
         cv::KeyPoint prev_key = prevFrame.keypoints[it->queryIdx];
         cv::Point prev_key_pt = cv::Point(prev_key.pt.x, prev_key.pt.y);
         bool prev_keypoint_found = false;
-
+        cout << it->queryIdx << " id is " << endl;
         cv::KeyPoint curr_key = currFrame.keypoints[it->queryIdx];
         cv::Point curr_key_pt = cv::Point(curr_key.pt.x, curr_key.pt.y);
         bool curr_keypoint_found = false;
@@ -201,5 +219,28 @@ void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bb
             }
         }
 
+        for(int i = 0; i < prevFrame.boundingBoxes.size() ; i++)
+        {
+            int max_count = 0;
+            int id_max = 0;
+            for(int j =0; j < currFrame.boundingBoxes.size(); j ++)
+            {
+                if(pt_counts[i][j] > max_count)
+                {
+                    max_count = pt_counts[i][j];
+                    id_max = j;
+                }
+                bbBestMatches[i] = id_max;
+            }
+
+            bool bMsg = true;
+            if(bMsg)
+            {
+                for(int i = 0; i < prevFrame.boundingBoxes.size(); i++)
+                {
+                    cout << "Box " << i << " matches " << bbBestMatches[i] << " box " << endl;
+                }
+            }
+        }
     }
 }
