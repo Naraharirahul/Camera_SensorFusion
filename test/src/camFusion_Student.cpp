@@ -137,8 +137,38 @@ void show3DObjects(std::vector<BoundingBox> &boundingBoxes, cv::Size worldSize, 
 
 // associate a given bounding box with the keypoints it contains
 void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, std::vector<cv::DMatch> &kptMatches)
-{
-    // ...
+{   
+    std::vector<cv::DMatch> kptMatches_roi;
+    double dist_mean;
+    for(auto i = kptMatches.begin() ; i != kptMatches.end() ; ++i)
+    {
+        cv::KeyPoint kp = kptsCurr.at(i->trainIdx);
+        if(boundingBox.roi.contains(kp.pt.x, kp.pt.y))
+            kptMatches_roi.pushback(*i);
+    }
+
+    for (auto j = kptMatches_roi.begin() ; j!= kptMatches_roi.end; ++j)
+    {
+        dist_mean += j.distance;
+    }
+    cout << "Find " << kptMatches_roi.size() << " Matches" << endl;
+    if(kptMatches_roi.size() > 0)
+    {
+        dist_mean /= kptMatches_roi.size();
+    }
+    else return;
+    double threshold = dist_mean * 0.7;
+
+    for(auto i = kptMatches_roi.begin(); i!= kptMatches_roi.end() ; ++i)
+    {
+        if(i->distance < threshold)
+        {
+            boundingBox.kptMatches.push_back(*i);
+        }
+
+        cout << "Leave " << boundingBox.kptMatches.size() << " Matches" << endl;
+    }
+
 }
 
 
